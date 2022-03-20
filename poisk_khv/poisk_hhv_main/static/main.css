@@ -1,0 +1,32 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body {
+    background: #090909;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .bg-black {
+    background: #000;
+  }
+  
+  .card-project:hover {
+    border: 1px solid #eee;
+    cursor: pointer;
+  }
+
+  .content-wrapper {
+    width: 70%;
+    padding: 50px;
+    margin: 0 auto;
+    height: 90%; 
+    background-color: rgba(0,0,0,0.2);
+    color: #FFF;
+  }
+  
+ 
+ 
+
+

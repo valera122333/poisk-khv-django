@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+{% load static %}
+ 
+ 
+
+{% block content %}
+
+{% load static %}
+
+<div class="card text-white bg-dark my-5 py-4 text-center">
+    <div class="card-body">
+        <h3 class="text-white m-0">СМИ о нас</h3>
+    </div>
+</div>
+ 
+ 
+<div class="row my-6 text-center">
+
+   
+  {% for smi in smis %}
+  <div class="col-md-3 p-3">
+      
+    <div class="card bg-black card-project">
+        <h2>{{ smi.title|striptags|truncatechars:20 }}</h2>
+         
+      <img src="{{smi.image.url }}" class="card-img-top" />
+     
+      <div class="card-body">
+
+        
+        {% if smi.url %}
+        <a href="{{smi.url}}" class="btn btn-primary rounded-0 btn-sm" target="__blank" rel="noreferrer">Читать новость </a>
+        {% endif %}
+        <p>{{ smi.date }}</p>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+ 
+
+
+
+
+{% endblock %}
