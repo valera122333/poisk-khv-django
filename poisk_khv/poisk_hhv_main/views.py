@@ -29,7 +29,7 @@ def contact(request):
 
 def reestr(request):
     categorys = Category.objects.all()
-    # articles = Article.objects.order_by("title")
-    context = {"categorys": categorys }
+    articles = Article.objects.order_by("title")
+    context = {"categorys": categorys, "articles": articles}
 
-    return render(request, "reestr.html", context)
+    return render(request, "reestr.html", context)
