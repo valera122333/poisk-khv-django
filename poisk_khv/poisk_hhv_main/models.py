@@ -4,31 +4,6 @@ from django.db.models.fields.files import ImageField
 from datetime import date
 import datetime
 
-# class News(models.Model):
-#     title = models.CharField(max_length=255, verbose_name="Заголовок")
-#     slug = models.SlugField(
-#         max_length=255, unique=True, db_index=True, verbose_name="URL"
-#     )
-#     content = models.TextField(blank=True, verbose_name="Текст статьи")
-#     photo = models.ImageField(
-#         upload_to="news/images", verbose_name="Фото")
-#     time_create = models.DateTimeField(
-#         auto_now_add=True, verbose_name="Время создания")
-#     time_update = models.DateTimeField(
-#         auto_now=True, verbose_name="Время изменения")
-#     # is_published = models.BooleanField(default=True, verbose_name="Публикация")
-
-#     def __str__(self):
-#         return self.title
-
-#     def get_absolute_url(self):
-#         return reverse('new_detail', kwargs={'new_slug': self.slug})
-
-#     class Meta:
-#         verbose_name = "Новости"
-#         verbose_name_plural = "Новости"
-#         ordering = ["time_create", "title"]
-
 
 class Post(models.Model):
     title = models.CharField(max_length=100, verbose_name="Заголовок")
@@ -62,27 +37,103 @@ class Smi(models.Model):
         verbose_name_plural = "Сми о нас"
 
 
-class Article(models.Model):
-    # category = models.ForeignKey(
-    #     Category, on_delete=models.CASCADE, verbose_name='категория')
-    title = CharField(default=True, max_length=100, verbose_name="Заголовок")
-    sub_title = CharField(default=True, max_length=100,
-                          verbose_name="Подзаголовок")
-    url = URLField(blank=True, verbose_name="Адрес ссылки")
+class OurTeam(models.Model):
+    name = CharField(max_length=100,
+                     verbose_name="Имя")
+    title = CharField(max_length=100, verbose_name="Заголовок")
+    Phone = CharField(blank=True,  max_length=100,
+                      verbose_name="Номер телефона")
 
-    class Meta:
-        verbose_name = "Статья реестра"
-        verbose_name_plural = "Статья реестра"
-
-
-class Category(models.Model):
-    atricles = models.ForeignKey(
-        Article, default=True, on_delete=models.CASCADE, verbose_name='категория')
-    name = models.CharField(max_length=64, verbose_name='название категории')
+    image = ImageField(upload_to="our_team/images",
+                       verbose_name="Изображение")
 
     def __str__(self) -> str:
         return self.name
 
     class Meta:
-        verbose_name = "Категория реестра статьи"
-        verbose_name_plural = "Категория реестра статьи"
+        verbose_name = "Наша команда"
+        verbose_name_plural = "Наша команда"
+
+
+class ActiveTeam(models.Model):
+    name = CharField(max_length=100,
+                     verbose_name="Имя")
+    title = CharField(max_length=100, verbose_name="Заголовок")
+
+    image = ImageField(upload_to="active_team/images",
+                       verbose_name="Изображение")
+
+    def __str__(self) -> str:
+        return self.name
+
+    class Meta:
+        verbose_name = "Активная команда "
+        verbose_name_plural = "Активная команда"
+
+
+class AboutUs(models.Model):
+    title = CharField(max_length=100, verbose_name="Заголовок")
+    description = models.TextField(verbose_name="Описание")
+    image1 = ImageField(upload_to="about_us/images",
+                        verbose_name="Изображение")
+    image2 = ImageField(upload_to="about_us/images",
+                        verbose_name="Изображение")
+    image3 = ImageField(upload_to="about_us/images",
+                        verbose_name="Изображение")
+
+    def __str__(self) -> str:
+        return self.title
+
+    class Meta:
+        verbose_name = "О нас "
+        verbose_name_plural = "О нас"
+
+
+class AboutDocs(models.Model):
+    title = CharField(max_length=100, verbose_name="Заголовок")
+    url = URLField(blank=True, verbose_name="Адрес ссылки")
+
+    def __str__(self) -> str:
+        return self.title
+
+    class Meta:
+        verbose_name = "Документы о нас "
+        verbose_name_plural = "Документы о нас"
+
+
+class AboutPartner(models.Model):
+    url = URLField(blank=True, verbose_name="Адрес ссылки")
+    image = ImageField(upload_to="about_us/images",
+                       verbose_name="Изображение")
+
+    def __str__(self) -> str:
+        return self.url
+
+    class Meta:
+        verbose_name = "Партнеры о нас "
+        verbose_name_plural = "Партнеры о нас"
+
+
+class Projects(models.Model):
+    title = CharField(max_length=100, verbose_name="Заголовок")
+    sub_title = CharField(max_length=100, verbose_name="Подзаголовок")
+    summa = CharField(max_length=100, verbose_name="сумма")
+    data = CharField(max_length=100, verbose_name="дата")
+    description = models.TextField(verbose_name="Описание")
+    image1 = ImageField(upload_to="projects/images",
+                        verbose_name="Изображение")
+    image2 = ImageField(upload_to="projects/images",
+                        verbose_name="Изображение")
+    image3 = ImageField(upload_to="projects/images",
+                        verbose_name="Изображение")
+    url = URLField(blank=True, verbose_name="Адрес ссылки")
+
+    def __str__(self) -> str:
+        return self.title
+
+    class Meta:
+        verbose_name = "Проекты"
+        verbose_name_plural = "Проекты"
+
+
+# Здесь переделать

@@ -6,16 +6,16 @@
  
   <h1>{{post.title}}</h1>
   <h2 class="my-2 h5 text-muted">{{post.date}}</h2>
-  <a href="javascript:history.go(-1)" class="btn btn-primary">Назад</a>
+ 
   <img src="{{post.image.url}}" alt="{{post.title}}" class="img-fluid">
    
 
   <div class="my-4">
 
   {{post.description|safe}}
-  
-  </div>
  
+  </div>
+  <a href="javascript:history.go(-1)" class="btn btn-danger">Назад</a>
 </div>
 
 {% endblock %}

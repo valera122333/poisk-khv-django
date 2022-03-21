@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from django import views
 
+
 from django.shortcuts import render, get_object_or_404
-from .models import Article, Category, Post, Smi
+from .models import AboutDocs, AboutPartner, AboutUs, ActiveTeam,   OurTeam, Post, Projects, Smi
 # Create your views here.
 
 
@@ -26,10 +27,33 @@ def smi_about(request):
 def contact(request):
     return render(request, "contact.html")
 
+# это переделать
 
-def reestr(request):
-    categorys = Category.objects.all()
-    articles = Article.objects.order_by("title")
-    context = {"categorys": categorys, "articles": articles}
 
-    return render(request, "reestr.html", context)
+def our_team(request):
+    our_team = OurTeam.objects.all()
+    active_team = ActiveTeam.objects.all()
+    return render(request, "our_team.html", {"our_team": our_team, 'active_team': active_team})
+
+
+def about_us(request):
+    partners = AboutPartner.objects.all()
+    docs = AboutDocs.objects.all()
+    about_us = AboutUs.objects.all()
+    context = {"about_us": about_us, 'docs': docs, 'partners': partners}
+    return render(request, 'about_us.html', context)
+
+
+def about_us_detail(request, item_id):
+    item = get_object_or_404(AboutUs, pk=item_id)
+    return render(request, "about_us_detail.html", {"item": item})
+
+
+def projects(request):
+    projects = Projects.objects.all()
+    return render(request, "projects.html", {'projects': projects})
+
+
+def project_detail(request, project_id):
+    project = get_object_or_404(Projects, pk=project_id)
+    return render(request, "project_detail.html", {"project": project})

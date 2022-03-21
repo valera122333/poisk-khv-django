@@ -1,0 +1,87 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block content %}
+<div class="card text-white bg-dark my-5 py-6 text-center">
+    <div class="card-body">
+        <p>Наш девиз: «Война не окончена, пока не похоронен последний солдат» (А.В. Суворов)</p><br>
+        <h3 class="text-white m-0">Региональное отделение ООД "Поисковое движение России" в Хабаровском крае создано в декабре 2017 года, председателем был избран Кобзев Никита Сергеевич.</h3><br>
+        <h4>В настоящее время муниципальные отделения ООД "Поисковое движение России" открыты в 2 городских округах и 8 муниципальных районах Хабаровского края, в работу движения вовлечены 503 человека в возрасте от 12 до 65 лет, объединившиеся для достижения <b>миссии - увековечения памяти погибших при защите Отечества.</b></h4><br>
+        <h4>Деятельность нашего движения многогранна.<br>
+            В силу исторических и географических особенностей Хабаровского края <b>основными направлениями нашей работы стали:<b></h4>
+        <h4>- благоустройство воинских захоронений, братских могил;<br>
+            - организация и проведение акции "Судьба солдата" по установлению судеб граждан, пропавших в годы войны защитников Отечества;
+            - организация и проведение поисково-исследовательских экспедиция, участие в межрегиональных Вахтах памяти;
+            - оказание методической, консультационной помощи руководителям поисковых отрядов края.</h4>
+        <h3>География деятельности - Хабаровский край.</h3>
+    </div>
+</div>
+
+<div class="row my-4 text-center">
+
+  <h3>О нас</h3>
+   
+  {% for item in about_us %}
+     <div class="col-md-4 p-4">
+      <div class="card bg-black card-project">
+        <img src="{{item.image1.url }}" class="card-img-top" />
+    
+        <div class="card-body">
+    
+     
+          <h3 class="font-weight-light">{{item.title|striptags|truncatechars:46 }}</h3><br>
+
+        <p>{{item.description|striptags|truncatechars:100 }}</p>
+          <a class="btn btn-primary" href="{% url 'about_us_detail' item.id %}">Подробнее </a>
+            
+      </div>
+    </div>
+  </div>
+   
+  {% endfor %}
+
+</div>
+
+<div class="row my-4 text-center">
+    <h3>Документы</h3>
+</div>
+{% for doc in docs %}
+<div class="row gx-4 gx-lg-5 align-items-center my-5  ">
+   
+    <div class="col-lg-10 "> <h2>{{ doc.title }}</h2> </div>
+    <div class="col-lg-1   ">
+       
+
+        {% if doc.url %}
+        <a href="{{doc.url}}" class="btn btn-primary rounded-0 btn-lg" target="__blank" rel="noreferrer">Ознакомиться</a>
+        {% endif %}
+ 
+        </div>
+</div>
+{% endfor %}
+
+<div class="row my-4 text-center">
+    <h3>Наши партнеры</h3>
+ 
+
+{% for part in partners %}
+ 
+     <div class="col-md-4 p-4">
+      <div class="card bg-black card-project">
+       <a href={{part.url}}> <img src="{{part.image.url }}" class="card-img-top" /></a>
+   
+    </div>
+  </div>
+ 
+  {% endfor %}
+
+</div>
+
+
+ 
+ 
+  
+     
+     
+
+
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block content %}
+
+<div class="card text-white bg-dark my-5 py-6 text-center">
+    <div class="card-body">
+        <h3 class="text-white m-0">КОБЗЕВ Никита Сергеевич<br>
+            председатель регионального совета</h3>
+    </div>
+</div>
+
+<div class="row gx-4 gx-lg-5 align-items-center my-5  ">
+   
+    <div class="col-lg-6 "><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'images/nikita.jpg' %}"  /></div>
+    <div class="col-lg-6  ">
+        <h3 class="font-weight-light">Дата рождения: 29.06.1998 г. (33 года).</h3><br>
+
+        <p>Место рождения: Хабаровский край, город Хабаровск </p>
+            <br>
+            Образование: высшее профессиональное, ФГБОУ ВПО «Дальневосточный государственный гуманитарный университет» (учитель истории) 
+ 
+        </div>
+</div>
+
+<div class="card text-white bg-dark my-5 py-6 text-center">
+    <div class="card-body">
+        <h3 class="text-white m-0">НАША КОМАНДА<br>
+           
+    </div>
+</div>
+
+<div class="row my-4 text-center">
+
+{% for team in our_team %}
+<div class="col-md-3 p-2">
+    
+  <div class="card bg-black  ">
+     
+       
+    <img src="{{team.image.url }}" class="card-img-top   " />
+   
+    <div class="card-body">
+
+        <h2>{{ team.name }}</h2>
+      <p>{{ team.title }}</p>
+      <p>{{ team.Phone }}</p>
+    </div>
+  </div>
+</div>
+{% endfor %}
+</div>
+<div class="row my-4 text-center">
+    <div class="card text-white bg-dark my-5 py-6 text-center">
+        <div class="card-body">
+            <h3 class="text-white m-0">Актив Поискового движения в Хабаровском крае</h3><br>
+            <p>Наши активисты из разных уголков региона</p>
+        </div>
+    </div>
+  
+   
+ {% for team2 in active_team %}
+<div class="col-md-3 p-2">
+    
+  <div class="card bg-black ">
+     
+       
+    <img src="{{team2.image.url }}" class="card-img-top   " />
+   
+    <div class="card-body">
+
+        <h2>{{ team2.name }}</h2>
+      <p>{{ team2.title }}</p>
+     
+    </div>
+  </div>
+</div>
+{% endfor %}
+</div>
+ </div>
+ 
+
+ 
+   
+{% endblock %}
