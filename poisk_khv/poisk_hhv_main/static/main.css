@@ -1,39 +1,39 @@
-*{
+* {
   margin: 0;
   padding: 0;
 }
-body {
-    background: #090909;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .bg-black {
-    background: #000;
-  }
-  
-  .card-project:hover {
-    border: 1px solid #eee;
-    cursor: pointer;
-  }
 
-  .content-wrapper {
-    width: 70%;
-    padding: 50px;
-    margin: 0 auto;
-    height: 90%; 
-    background-color: rgba(0,0,0,0.2);
-    color: #FFF;
-  }
-  
- /* Собственно сам слайдер */
-.slider{
+body {
+  color: rgb(0, 0, 0);
+  margin: 0;
+  padding: 0;
+}
+
+.bg-black {}
+
+.card-project:hover {
+  border: 1px solid #eee;
+  cursor: pointer;
+}
+
+.content-wrapper {
+  width: 70%;
+  padding: 50px;
+  margin: 0 auto;
+  height: 90%;
+
+  color: rgb(0, 0, 0);
+}
+
+/* Собственно сам слайдер */
+.slider {
   max-width: 100%;
   position: relative;
   margin: auto;
   height: 500px;
   margin-bottom: 15px;
 }
+
 /* Картинка мастабируется по отношению к родительскому элементу */
 .slider .item img {
   object-fit: cover;
@@ -42,8 +42,10 @@ body {
   border: none !important;
   box-shadow: none !important;
 }
+
 /* Кнопки вперед и назад */
-.slider .prev, .slider .next {
+.slider .prev,
+.slider .next {
   cursor: pointer;
   position: absolute;
   top: 0;
@@ -57,22 +59,26 @@ body {
   transition: 0.6s ease;
   border-radius: 0 3px 3px 0;
 }
+
 .slider .next {
   right: 0;
   border-radius: 3px 0 0 3px;
 }
+
 /* При наведении на кнопки добавляем фон кнопок */
 .slider .prev:hover,
 .slider .next:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
+
 /* Заголовок слайда */
 
 /* Кружочки */
 .slider-dots {
   text-align: center;
 }
-.slider-dots_item{
+
+.slider-dots_item {
   cursor: pointer;
   height: 12px;
   width: 12px;
@@ -82,10 +88,12 @@ body {
   display: inline-block;
   transition: background-color 0.6s ease;
 }
+
 .active,
 .slider-dots_item:hover {
   background-color: #aaa;
 }
+
 /* Анимация слайдов */
 .slider .item {
   -webkit-animation-name: fade;
@@ -93,22 +101,30 @@ body {
   animation-name: fade;
   animation-duration: 1.5s;
 }
+
 @-webkit-keyframes fade {
   from {
-      opacity: .4
+    opacity: .4
   }
+
   to {
-      opacity: 1
+    opacity: 1
   }
 }
+
 @keyframes fade {
   from {
-      opacity: .4
+    opacity: .4
   }
+
   to {
-      opacity: 1
+    opacity: 1
   }
 }
- 
 
 
+
+.text_normal {
+  font-size: 16px;
+  font-weight: 400;
+}

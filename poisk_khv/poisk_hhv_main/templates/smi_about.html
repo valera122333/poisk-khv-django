@@ -1,15 +1,11 @@
 {% extends 'layout.html' %}
 {% load static %}
- 
- 
-
 {% block content %}
 
-{% load static %}
-
-<div class="card text-white bg-dark my-5 py-4 text-center">
+ 
+<div class=" text-white  my-5 py-4 text-center">
     <div class="card-body">
-        <h3 class="text-white m-0">СМИ о нас</h3>
+        <h3 class="text-dark m-0">СМИ о движении</h3>
     </div>
 </div>
  
@@ -20,8 +16,8 @@
   {% for smi in smis %}
   <div class="col-md-3 p-3">
       
-    <div class="card bg-black card-project">
-        <h2>{{ smi.title|striptags|truncatechars:20 }}</h2>
+    <div class="card  card-project">
+        <h6>{{ smi.title|striptags|truncatechars:40 }}</h6>
          
       <img src="{{smi.image.url }}" class="card-img-top" />
      
@@ -37,7 +33,7 @@
   </div>
   {% endfor %}
  
-
+</div>
 
 
 

@@ -1,3 +1,4 @@
+from email.policy import default
 from django.db import models
 from django.db.models.fields import CharField, DateField, URLField
 from django.db.models.fields.files import ImageField
@@ -97,8 +98,8 @@ class AboutDocs(models.Model):
         return self.title
 
     class Meta:
-        verbose_name = "Документы о нас "
-        verbose_name_plural = "Документы о нас"
+        verbose_name = "Документы отделения"
+        verbose_name_plural = "Документы отделения"
 
 
 class AboutPartner(models.Model):
@@ -136,4 +137,91 @@ class Projects(models.Model):
         verbose_name_plural = "Проекты"
 
 
-# Здесь переделать
+def upload_gallery_image(instance, filename):
+    return f"images/CatImages/{instance.category.title}/gallery/{filename}"
+
+
+class CatImages(models.Model):
+    title = CharField(max_length=100, verbose_name="Заголовок категории")
+    description = CharField(
+        max_length=200, verbose_name="Описание", default='')
+    image1 = models.ImageField(upload_to='cat/images', default='')
+    audio_file = models.FileField(
+        default='', verbose_name='песенка', upload_to="audio_player/")
+
+    def __str__(self) -> str:
+        return self.title
+
+    class Meta:
+        verbose_name = "Галерея"
+        verbose_name_plural = "Галерея"
+
+
+class Image(models.Model):
+
+    image = models.ImageField(upload_to=upload_gallery_image)
+    category = models.ForeignKey(
+        CatImages, on_delete=models.CASCADE, related_name="images")
+
+
+class Article(models.Model):
+    title = models.CharField(max_length=100, verbose_name="Заголовок")
+    description1 = models.TextField(
+        verbose_name="Описание1", blank=True, null=True)
+    image1 = models.ImageField(upload_to="article/images",
+                               verbose_name="Изображение1", null=True, blank=True)
+
+    description2 = models.TextField(
+        verbose_name="Описание2", null=True, blank=True)
+    image2 = models.ImageField(upload_to="article/images",
+                               verbose_name="Изображение2", null=True, blank=True)
+
+    description3 = models.TextField(
+        verbose_name="Описание3", null=True, blank=True)
+    image3 = models.ImageField(upload_to="article/images",
+                               verbose_name="Изображение3", null=True, blank=True)
+
+    description4 = models.TextField(
+        verbose_name="Описание4", null=True, blank=True)
+    image4 = models.ImageField(upload_to="article/images",
+                               verbose_name="Изображение4", null=True, blank=True)
+
+    description5 = models.TextField(
+        verbose_name="Описание5", null=True, blank=True)
+    image5 = models.ImageField(upload_to="article/images",
+                               verbose_name="Изображение5", null=True, blank=True)
+
+    description6 = models.TextField(
+        verbose_name="Описание6", null=True, blank=True)
+    image6 = models.ImageField(upload_to="article/images",
+                               verbose_name="Изображение6", null=True, blank=True)
+
+    description7 = models.TextField(
+        verbose_name="Описание7", null=True, blank=True)
+    image7 = models.ImageField(upload_to="article/images",
+                               verbose_name="Изображение7", null=True, blank=True)
+
+    description8 = models.TextField(
+        verbose_name="Описание8", null=True, blank=True)
+    image8 = models.ImageField(upload_to="article/images",
+                               verbose_name="Изображение8", null=True, blank=True)
+
+    description9 = models.TextField(
+        verbose_name="Описание9", null=True, blank=True)
+    image9 = models.ImageField(upload_to="article/images",
+                               verbose_name="Изображение9", null=True, blank=True)
+
+    description10 = models.TextField(
+        verbose_name="Описание10", null=True, blank=True)
+    image10 = models.ImageField(upload_to="article/images",
+                                verbose_name="Изображение10", null=True, blank=True)
+
+    date = models.DateField(default=datetime.date.today, verbose_name="Дата")
+
+    def __str__(self) -> str:
+        return self.title
+
+    class Meta:
+
+        verbose_name = "Статья"
+        verbose_name_plural = "Статья"

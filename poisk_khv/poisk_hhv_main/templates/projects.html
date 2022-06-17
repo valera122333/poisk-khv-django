@@ -1,32 +1,32 @@
 {% extends 'layout.html' %}
 {% load static %}
 {% block content %}
-
+{% load crispy_forms_tags %}
 <div class="row my-4 text-center">
 
-    <h3>Наши проекты</h3>
+    <h3>Проекты регионального отделения</h3>
     {% for project in projects %}
     <div class="col-md-4 p-4">
-     <div class="card bg-black  ">
+     <div class="card  ">
        <img src="{{project.image1.url }}" class="card-img-top" />
    
        <div class="card-body">
    
     
-         <h3 class="font-weight-light">{{project.title|striptags|truncatechars:16 }}</h3><br>
-         <h4>{{project.sub_title|striptags|truncatechars:45 }}</h4>
+         <h5 class="font-weight-light">{{project.title|striptags|truncatechars:45 }}</h6><br>
+         <h6>{{project.sub_title|striptags|truncatechars:50 }}</h6>
          <p>{{project.summa|striptags|truncatechars:45 }}</p>
          <p>{{project.data|striptags|truncatechars:30 }}</p>
-       <p>{{project.description|striptags|truncatechars:45 }}</p>
+       <p>{{project.description|striptags|truncatechars:70 }}</p>
       
          <a class="btn btn-primary" href="{% url 'project_detail' project.id %}">Подробнее </a>
            
      </div>
    </div>
  </div>
-  
+ 
  {% endfor %}
 
 </div>
-
+ 
 {% endblock %}

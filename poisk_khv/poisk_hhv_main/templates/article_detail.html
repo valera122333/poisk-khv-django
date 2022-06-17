@@ -1,0 +1,145 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<div class="my-4   ">
+  
+    <h3 class='text-center'>{{articles.title }}</h3>
+<div class="col-12"> 
+<div class="col-8 p-4 container">
+    <div class="">
+        {% if articles.image1 %} 
+        <img src="{{articles.image1.url }}" class="card-img-top"   />
+        {% else %}
+        {% endif %}
+
+      </div>
+          
+        <p   style="text-indent: 25px;" id='desc_size '>
+          {{articles.description1|linebreaks}}
+     
+      </p>
+   
+
+      <div class="">
+        {% if articles.image2 %} 
+        <img src="{{articles.image2.url }}" class="card-img-top"   />
+        {% else %}
+        {% endif %}
+
+      </div>
+          
+        <p   style="text-indent: 25px;" id='desc_size'>
+          {{articles.description2|linebreaks}}
+     
+      </p>
+      <div class="">
+        {% if articles.image3 %} 
+        <img src="{{articles.image3.url }}" class="card-img-top"   />
+        {% else %}
+        {% endif %}
+
+      </div>
+          
+        <p   style="text-indent: 25px;" id='desc_size'>
+          {{articles.description3|linebreaks}}
+     
+      </p>
+      <div class="">
+        {% if articles.image4 %} 
+        <img src="{{articles.image4.url }}" class="card-img-top"   />
+        {% else %}
+        {% endif %}
+
+      </div>
+          
+        <p   style="text-indent: 25px;" id='desc_size'>
+          {{articles.description4|linebreaks}}
+     
+      </p>
+      <div class="">
+        {% if articles.image5 %} 
+        <img src="{{articles.image5.url }}" class="card-img-top"   />
+        {% else %}
+        {% endif %}
+      </div>
+          
+        <p   style="text-indent: 25px;" id='desc_size'>
+          {{articles.description5|linebreaks}}
+     
+      </p>
+      <div class="">
+        {% if articles.image6 %} 
+        <img src="{{articles.image6.url }}" class="card-img-top"   />
+        {% else %}
+        {% endif %}
+
+      </div>
+          
+        <p   style="text-indent: 25px;" id='desc_size'>
+          {{articles.description6|linebreaks}}
+     
+      </p>
+      <div class="">
+        {% if articles.image7 %} 
+        <img src="{{articles.image7.url }}" class="card-img-top"   />
+        {% else %}
+        {% endif %}
+
+      </div>
+          
+        <p   style="text-indent: 25px;" id='desc_size'>
+          {{articles.description7|linebreaks}}
+     
+      </p>
+      <div class="">
+        {% if articles.image8 %} 
+        <img src="{{articles.image8.url }}" class="card-img-top"   />
+        {% else %}
+        {% endif %}
+
+      </div>
+          
+        <p   style="text-indent: 25px;" id='desc_size'>
+          {{articles.description8|linebreaks}}
+     
+      </p>
+      <div class="">
+        {% if articles.image9 %} 
+        <img src="{{articles.image9.url }}" class="card-img-top"   />
+        {% else %}
+        {% endif %}
+      </div>
+          
+        <p   style="text-indent: 25px;" id='desc_size'>
+          {{articles.description9|linebreaks}}
+     
+      </p>
+      <div class="">
+        {% if articles.image10 %} 
+        <img src="{{articles.image10.url }}" class="card-img-top"   />
+        {% else %}
+        {% endif %}
+
+      </div>
+          
+        <p   style="text-indent: 25px;" id='desc_size'>
+          {{articles.description10|linebreaks}}
+     
+      </p>
+
+
+
+    </div>
+</div>
+ 
+<a href="javascript:history.go(-1)" class="btn btn-danger">Назад</a>
+<style>
+  #desc_size{
+      font-size:100px;
+  }
+</style>
+
+{% endblock %}

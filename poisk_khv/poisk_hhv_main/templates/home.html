@@ -2,38 +2,160 @@
 {% load static %}
  
  
-
+ 
 {% block content %}
- 
-  <div class="row my-12   col-md-12  ">
-<header  class="   " style="background-image: url('static/images/3.jpg')" >
-  <div class="text-center my-5"  >
-      
-      <h1 class="text-white fs-3 fw-bolder">ХАБАРОВСКОЕ РЕГИОНАЛЬНОЕ ОТДЕЛЕНИЕ</h1>
-     
-      <h1 class="text-white fs-3 fw-bolder">общероссийского общественного движения по увековечению памяти погибших при защите Отечества <b>«ПОИСКОВОЕ ДВИЖЕНИЕ РОССИИ»</b></h1>
+<header>
    
-  </div>
 </header>
-</div>  
+  <div class="container ">
  
-<div class="row my-4 text-center">
-  
+ 
+<div class="row my-2 text-center">
+    <img class='container col-10' src="{% static 'images/logo1.png' %}" alt="">
+ 
+ 
 
-  
 
-  
-  <h3>Наши новости</h3>
+
    
+  <div class="slideshow">
+    <div class="slideshow-item">
+        <img src="{% static 'images/a3.jpg' %}" alt="">
+        <div class="slideshow-item-text">
+            <h5>Дальневосточный фронт 2022</h5>
+            <p>Экспедиция по поиску солдат и офицеров РККА в Южно-Сахалинской наступательной операции</p>
+        </div>
+    </div>
+    <div class="slideshow-item">
+        <img src="{% static 'images/a1.jpg' %}" alt="">
+        <div class="slideshow-item-text">
+            <h5>Студенческая Вахта Памяти</h5>
+            <p>Студенческая вахта памяти, проходившая в излучине Дона, для учета и перезахоронения останков санитарного захоронения</p>
+        </div>
+    </div>
+    <div class="slideshow-item">
+        <img src="{% static 'images/a_6.jpg' %}" alt="">
+        <div class="slideshow-item-text">
+            <h5>Экспедиция на Шумшу</h5>
+            <p>Вахта памяти, проходившая на острове Шумшу. На острове велась Курильская десантная операция по освобождению Курильских островов</p>
+        </div>
+    </div>
+    <div class="slideshow-item">
+        <img src="{% static 'images/17.jpg' %}" alt="">
+        <div class="slideshow-item-text">
+            <h5>Экспедиция Ин-Ольгохта</h5>
+            <p>Экспедиция на территории ЕАО, по боям гражданской войны 1921 года. </p>            
+        </div>
+    </div>
+</div>
+
+<style>
+  .slideshow {
+    width: 100%;
+    height: 500px;
+    position: relative;
+    overflow: hidden;
+    background: #000;
+    margin: 20px 0;
+}
+.slideshow-item {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0;
+    animation: slideanim 40s infinite;
+    pointer-events: none;
+}
+.slideshow-item:nth-child(1),
+.slideshow-item:nth-child(1) img {
+    animation-delay: 0;
+}
+.slideshow-item:nth-child(2),
+.slideshow-item:nth-child(2) img {
+    animation-delay: 10s;
+}
+.slideshow-item:nth-child(3),
+.slideshow-item:nth-child(3) img {
+    animation-delay: 20s;
+}
+.slideshow-item:nth-child(4),
+.slideshow-item:nth-child(4) img {
+    animation-delay: 30s;
+}
+.slideshow-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: zoom 40s infinite;
+}
+.slideshow-item-text {
+    max-width: 50%;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background-color: rgba(0,0,0,0.7);
+    color: #fff;
+    padding: 20px 30px;
+    font-family: Verdana, sans-serif;   
+}
+.slideshow-item-text h5 {
+    font-size: 22px;
+    margin: 0 0 10px 0;
+    color: #BFE2FF;
+}
+.slideshow-item-text p {
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+@keyframes slideanim {
+    12.5%{
+        opacity: 1;
+        pointer-events: auto;
+    }
+    25%{
+        opacity: 1;
+        pointer-events: auto;
+    }    
+    37.5%{
+        opacity: 0;
+    }
+}
+@keyframes zoom {
+    50%{
+        transform: scale(1.3);
+    }    
+}
+@media screen and (max-width: 1100px){
+    .slideshow-item-text{
+        max-width: 75%;
+    }
+}
+@media screen and (max-width: 456px){
+    .slideshow-item-text {
+        bottom: 0;
+        left: 0;
+        max-width: 100%;
+    }
+    .slideshow-item-text h5 {
+        font-size: 18px;
+    }
+    .slideshow-item-text p {
+        font-size: 13px;
+    }
+}
+</style>
+    <h2>Наши новости</h2>
+
      {% for post in posts %}
-     <div class="col-md-4 p-4">
-      <div class="card bg-black card-project">
-        <img src="{{post.image.url }}" class="card-img-top" />
+     <div class="col-md-4 p-lg-3">
+      <div class="card  ">
+        <h5 class='min_description' >{{ post.title|striptags|truncatechars:25 }}</h5>
+        <img src="{{post.image.url }}" class="card-img-top"/>
     
         <div class="card-body">
     
-          <h2 class='min_description' >{{ post.title|striptags|truncatechars:30 }}</h2>
-          <p>{{ post.description|striptags|truncatechars:20 }}</p>
+           
+          <p >{{ post.description|striptags|truncatechars:140 }}</p>
     
           <p>{{post.date }}</p>
           <a class="btn btn-primary" href="{% url 'post_detail' post.id %}">Подробнее </a>
@@ -44,6 +166,7 @@
    
   {% endfor %}
 
+</div>
 </div>
 
 

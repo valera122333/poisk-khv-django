@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block content %}
+ 
+
+<div class="container">
+    <h1 class="h3 text-center my-4">{{gallery_photos.title}}</h1>
+    <div class="row">
+        {% for item in gallery_photos.images.all %}
+        <div class="col-lg-3 col-md-4 col-6 thumb p-1">
+            <a href="{% get_media_prefix %}{{ item.image }}" data-toggle="lightbox" data-gallery="example-gallery">
+                <img class="img-fluid" src="{{ item.image.url }}" alt="...">
+
+               
+            </a>
+        </div>
+        
+        {% endfor %}
+        <div> <br><a href="javascript:history.go(-1)" class="btn btn-primary ">Назад</a></div>
+        
+        <div class="m-2">
+            <audio id="player" controls="controls " autoplay loop >
+                      
+            <source src="{{gallery_photos.audio_file.url }}" type="audio/ogg" allow=''/>
+            <button onclick="document.getElementById('player').volume+=0.1">Громкость +</button>
+            <button onclick="document.getElementById('player').volume-=0.1">Громкость -</button>
+          </audio>
+        </div>
+          
+      
+    </div>
+</div>
+
+ 
+ 
+{% endblock %}

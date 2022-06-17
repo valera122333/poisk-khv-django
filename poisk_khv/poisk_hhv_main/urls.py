@@ -20,4 +20,11 @@ urlpatterns = [
     path('projects/', views.projects, name='projects'),
     path("project_detail/<int:project_id>",
          views.project_detail, name="project_detail"),
+    path('gallery/', views.gallery, name='gallery'),
+    path("gallery_detail/<int:gallery_id>",
+         views.gallery_detail, name="gallery_detail"),
+    path('articles/', views.articles, name='articles'),
+
+    path("article_detail/<int:project_id>",
+         views.article_detail, name="article_detail"),
 ]

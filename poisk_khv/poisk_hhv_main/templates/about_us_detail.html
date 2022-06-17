@@ -5,12 +5,13 @@
 
 {% block content %}
 <div class="row my-4 text-center">
-    <div class="card text-white bg-dark my-5 py-6 text-center">
+    <div class=" text-dark  my-5 py-6 text-center">
         <div class="card-body">
-            <h3 class="text-white m-0">{{item.title }} </h3><br>
-            <h4>{{item.description }}</h4>
+            <h6 class="text-dark m-0">{{item.title }} </h6><br>
+            <p>{{item.description }}</p>
         </div>
     </div>
+</div>
 <div class="slider">
     <div class="item">
         <img src="{{item.image1.url }}"  alt="Первый слайд">
@@ -37,9 +38,11 @@
     <span class="slider-dots_item" onclick="currentSlide(1)"></span> 
     <span class="slider-dots_item" onclick="currentSlide(2)"></span> 
     <span class="slider-dots_item" onclick="currentSlide(3)"></span> 
-
+    
+    <div> <br><a href="javascript:history.go(-1)" class="btn btn-danger">Назад</a></div>
+     
 </div>
-<a href="javascript:history.go(-1)" class="btn btn-danger">Назад</a>
+ 
  
 
 <script>

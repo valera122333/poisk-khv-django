@@ -2,58 +2,32 @@
 {% load static %}
 {% block content %}
 
-<div class="card text-white bg-dark my-5 py-6 text-center">
+<div class=" text-white  my-5 py-6 text-center">
     <div class="card-body">
-        <h3 class="text-white m-0">КОБЗЕВ Никита Сергеевич<br>
-            председатель регионального совета</h3>
+        <h3 class="text-dark m-0">Зубарев Георгий Вячеслалович<br>
+            командир поисковго отряда "БРиЗ"</h3>
     </div>
 </div>
 
 <div class="row gx-4 gx-lg-5 align-items-center my-5  ">
    
-    <div class="col-lg-6 "><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'images/nikita.jpg' %}"  /></div>
+    <div class="col-lg-6 "><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'images/gera.jpg' %}"  /></div>
     <div class="col-lg-6  ">
-        <h3 class="font-weight-light">Дата рождения: 29.06.1998 г. (33 года).</h3><br>
+        <h3 class="font-weight-light">Дата рождения: 20.08.2002 г. (20 лет).</h3><br>
 
-        <p>Место рождения: Хабаровский край, город Хабаровск </p>
+        <p>Место рождения: ЕАО, с. Камышовка</p>
             <br>
-            Образование: высшее профессиональное, ФГБОУ ВПО «Дальневосточный государственный гуманитарный университет» (учитель истории) 
+            Образование: среднее профессиональное образование "Хабаровский колледж отраслевых технологий и сферы обслуживания 
  
         </div>
 </div>
 
-<div class="card text-white bg-dark my-5 py-6 text-center">
-    <div class="card-body">
-        <h3 class="text-white m-0">НАША КОМАНДА<br>
-           
-    </div>
-</div>
 
-<div class="row my-4 text-center">
-
-{% for team in our_team %}
-<div class="col-md-3 p-2">
-    
-  <div class="card bg-black  ">
-     
-       
-    <img src="{{team.image.url }}" class="card-img-top   " />
-   
-    <div class="card-body">
-
-        <h2>{{ team.name }}</h2>
-      <p>{{ team.title }}</p>
-      <p>{{ team.Phone }}</p>
-    </div>
-  </div>
-</div>
-{% endfor %}
-</div>
-<div class="row my-4 text-center">
-    <div class="card text-white bg-dark my-5 py-6 text-center">
+<div class="row my-4 text-dark">
+    <div class=" text-dark  my-5 py-6 text-center">
         <div class="card-body">
-            <h3 class="text-white m-0">Актив Поискового движения в Хабаровском крае</h3><br>
-            <p>Наши активисты из разных уголков региона</p>
+            <h3 class="text-dark m-0">Актив студенческого отряда "БРиЗ"</h3><br>
+            <p>Членами отряда БРиЗ являются студенты колледжа из разных уголков России </p>
         </div>
     </div>
   
@@ -61,14 +35,14 @@
  {% for team2 in active_team %}
 <div class="col-md-3 p-2">
     
-  <div class="card bg-black ">
+  <div class="card ">
      
        
     <img src="{{team2.image.url }}" class="card-img-top   " />
    
     <div class="card-body">
 
-        <h2>{{ team2.name }}</h2>
+        <h5>{{ team2.name }}</h5>
       <p>{{ team2.title }}</p>
      
     </div>
@@ -76,8 +50,34 @@
 </div>
 {% endfor %}
 </div>
- </div>
  
+<div class=" text-dark  my-5 py-6 text-center">
+  <div class="card-body">
+      <h3>Организация регионального отделения</h3><br>
+      <p>Руководители и члены команды регионального отделения Хабаровского края</p>         
+  </div>
+</div>
+
+<div class="row my-4 text-center">
+
+{% for team in our_team %}
+<div class="col-md-3 p-2">
+  
+<div class="card  ">
+   
+     
+  <img src="{{team.image.url }}" class="card-img-top" />
+ 
+  <div class="card-body h-25">
+
+      <h5>{{ team.name }}</h5>
+    <p>{{ team.title }}</p>
+    <p>{{ team.Phone }}</p>
+  </div>
+</div>
+</div>
+{% endfor %}
+</div>
 
  
    

@@ -2,23 +2,40 @@
 
 
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container px-5">
-      <a class="navbar-brand" href="/">Главная</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-          aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li class="nav-item"><a class="nav-link" href="{% url 'about_us' %}">О нас</a></li>
-              <li class="nav-item"><a class="nav-link" href="{% url 'our_team' %}">Наша команда</a></li>
-              <li class="nav-item"><a class="nav-link" href="{% url 'projects' %}">Наши проекты</a></li>
-              <li class="nav-item"><a class="nav-link" href="{% url 'smi_about' %}">Сми о нас</a></li>
-              <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Контакты</a></li> 
-              
-          </ul>
-      </div>
-  </div>
-</nav>
+<div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+        <span class="fs-4">Главная</span>
+      </a>
 
-</nav>
+      <ul class="nav nav-pills">
+        
+           <li class="nav-item"><a class="nav-link" href="{% url 'about_us' %}">О нас</a></li>
+           <li class="nav-item"><a class="nav-link" href="{% url 'articles' %}">Статьи</a></li> 
+           <li class="nav-item"><a class="nav-link" href="{% url 'our_team' %}">Наш отряд</a></li>
+           <li class="nav-item"><a class="nav-link" href="{% url 'gallery' %}">Галерея</a></li>
+           <li class="nav-item"><a class="nav-link" href="{% url 'projects' %}">Проекты</a></li>
+           <li class="nav-item"><a class="nav-link" href="{% url 'smi_about' %}">Сми о нас</a></li>
+           <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Контакты</a></li>
+           {% if user.is_superuser %}
+        <li class="nav-item ">
+           <a class="nav-link" href="{% url 'admin:index' %}">Панель администратора</span> </a>
+        </li>
+        {%endif%}
+ 
+    </header>
+  </div>
+
+  <div class="b-example-divider"></div>
+
+
+<style>
+    .container{
+    font-size: 20px;
+    }
+    .img_head{
+        height:32px;
+        width:64px;
+    }
+</style>

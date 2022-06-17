@@ -1,10 +1,40 @@
-from django.shortcuts import render
+
+
 from django import views
 
 
 from django.shortcuts import render, get_object_or_404
-from .models import AboutDocs, AboutPartner, AboutUs, ActiveTeam,   OurTeam, Post, Projects, Smi
+
+
+from .models import AboutDocs, AboutPartner, AboutUs, ActiveTeam, Article, CatImages,   OurTeam, Post, Projects, Smi
 # Create your views here.
+
+
+def articles(request):
+    article = Article.objects.all()
+    return render(request, "articles.html", {'article': article})
+
+
+def article_detail(request, project_id):
+    articles = get_object_or_404(Article, pk=project_id)
+    return render(request, "article_detail.html", {"articles": articles})
+
+
+# def article(request):
+#     article = Article.objects.all()
+
+#     return render(request, "article.html", {"article": article})
+
+
+def gallery(request):
+    cat_img = CatImages.objects.all()
+
+    return render(request, "gallery.html", {"cat_img": cat_img})
+
+
+def gallery_detail(request, gallery_id):
+    gallery_photos = get_object_or_404(CatImages, pk=gallery_id)
+    return render(request, "gallery_detail.html", {"gallery_photos": gallery_photos})
 
 
 def home(request):
